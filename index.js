@@ -12,5 +12,5 @@ function updateClock(){
 }
 
 updateClock();
-setInterval(updateClock, 1);
+setInterval(updateClock, 100);
 //while(true){updateClock();}
