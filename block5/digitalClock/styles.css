@@ -36,7 +36,7 @@ body {
 /* Keyframes to reduce blur */
 @keyframes reduceBlur {
     from {
-        backdrop-filter: blur(5000px);
+        backdrop-filter: blur(600px);
     }
     to {
         backdrop-filter: blur(1px);
