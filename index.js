@@ -5,10 +5,11 @@ function updateClock() {
     const seconds = now.getSeconds().toString().padStart(2, '0');
     const milliseconds = now.getMilliseconds().toString().padStart(3, '0');
 
+    // Ensure milliseconds are always 3 digits
     const timeString = `${hours}:${minutes}:${seconds}:${milliseconds}`;
     document.getElementById("clock").textContent = timeString;
 }
 
-// Use setInterval to update every 100 milliseconds instead of 1 millisecond
+// Update every 100ms to avoid excessive frequency
 updateClock();
 setInterval(updateClock, 100);
