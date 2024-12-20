@@ -32,5 +32,20 @@ input{
     border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 15px;
-    border: 2px solid hsla(0,0%,90%);
+    border: 2px solid hsl(0,0%,90%);
+}
+button{
+    background-color: green;
+    
+}
+button-hover{
+    background-color: hsl(120,100%,30%);
+}
+#total{
+    font-size:2em;
+
+}
+#total-amount{
+    color: hsl(120,100%,35%);
+    font-weight:bold;
 }
