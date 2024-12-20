@@ -1,0 +1,36 @@
+body{
+    background-color:antiquewhite;
+    font-family:'Franklin Gothic Medium'
+    
+
+}
+h1{
+    color: rgb(13,102,72);
+    font-size: 3em;
+    text-align:center;
+}
+form{
+    background-color:white;
+    max-width: 350px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px hsla(0,0%,0%,3);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+}
+label{
+    font-size: 2em;
+    font-weight: bold;
+
+}
+input{
+    width: 50%;
+    text-align: center;
+    font-size: 2em;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 2px solid hsla(0,0%,90%);
+}
