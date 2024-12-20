@@ -20,3 +20,17 @@ form{
     align-items:center;
 
 }
+label{
+    font-size: 2em;
+    font-weight: bold;
+
+}
+input{
+    width: 50%;
+    text-align: center;
+    font-size: 2em;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 2px solid hsla(0,0%,90%);
+}
