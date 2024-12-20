@@ -38,7 +38,7 @@ button{
     background-color: green;
     
 }
-button-hover{
+button:hover{
     background-color: hsl(120,100%,30%);
 }
 #total{
