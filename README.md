@@ -21,11 +21,11 @@ happy cheating!
 ![smilingbucktooth](https://github.com/user-attachments/assets/edd42958-8df0-4959-95e7-9dbbecfaef3a)
 
 ## next up on my list of things to do for this
--[x]start working on the damn thing
--[]figure out how to use the referall code from just the web
--[]\(optional) if that doesnt work, figure out how to emulate the app or something from this script
--[]start working on the bot and it detecting and clicking specified needed items
--[]more tbd?
+- [x] start working on the damn thing
+- [ ] figure out how to use the referall code from just the web
+- [ ] \(optional) if that doesnt work, figure out how to emulate the app or something from this script
+- [  ]start working on the bot and it detecting and clicking specified needed items
+- [ ] more tbd?
 
 most recent updates:
 <sup>the shein games only really working on the mobile
