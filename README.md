@@ -17,6 +17,7 @@ Enter the URL you want to visit (including http:// or https://):
 >(been meaning to just auto put https:// but you have to do it manually)
 
 happy cheating!
+
 ![smilingbucktooth](https://github.com/user-attachments/assets/edd42958-8df0-4959-95e7-9dbbecfaef3a)
 
 most recent updates:
