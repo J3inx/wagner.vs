@@ -1,6 +1,7 @@
 # Python Shein/others Referall bot
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads)
+![Contributors](https://img.shields.io/github/contributors/J3inx/wagner.vs?style=flat-square)
 
 **huge work in progess, i dont know what i am doing**
 currently developing a script that might be able to cheese some of shein's mobile crap games, just run the script, input your referral link, and hope for the best.
