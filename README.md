@@ -27,7 +27,7 @@ happy cheating!
 - [ ] start working on the bot and it detecting and clicking specified needed items
 - [ ] more tbd?
 
-###most recent updates:
+### most recent updates:
 
 <sup>the shein games only really working on the mobile
 app. will keep working on it but useful for gettin
