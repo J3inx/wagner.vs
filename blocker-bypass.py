@@ -5,7 +5,11 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 import os
 import signal
-
+device = input("what device do you want to emulate, 1 for iphone x, 2 for macbook air, and 3 for an ipad pro: ").strip()
+try:
+    device = int(device)
+except ValueError:
+    print("Invalid time input. Please enter a valid integer.")
 # Proxy details for ScraperAPI (your API key included)
 PROXY_API_URL = "http://api.scraperapi.com?api_key=c171fdfad8a78066023d95db165b3771&url="  # Your ScraperAPI key
 
@@ -13,11 +17,37 @@ PROXY_API_URL = "http://api.scraperapi.com?api_key=c171fdfad8a78066023d95db165b3
 def set_proxy(proxy_address):
     # Define ChromeOptions
     options = Options()
-
-    # Enable mobile emulation (for iPhone X)
-    mobile_emulation = {
-        "deviceName": "iPhone X"
-    }
+    
+    # Enable mobile emulation (blank blank)
+    device
+    # Mobile emulation configuration based on the selected device
+    if device == 1:  # iPhone X
+        mobile_emulation = {
+            "deviceName": "iPhone X"
+        }
+    elif device == 2:  # MacBook Air
+        mobile_emulation = {
+            "deviceMetrics": {
+                "width": 1280,
+                "height": 800,
+                "pixelRatio": 2.0
+            },
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36"
+        }
+    elif device == 3:  # iPad Pro
+        mobile_emulation = {
+            "deviceName": "iPad Pro"
+        }
+    else:
+        print("Invalid device selection. Defaulting to macbook air.")
+        mobile_emulation = {
+            "deviceMetrics": {
+                "width": 1280,
+                "height": 800,
+                "pixelRatio": 2.0
+            },
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36"
+        }
     options.add_experimental_option("mobileEmulation", mobile_emulation)
 
     # Add proxy to Chrome options
@@ -32,7 +62,7 @@ def wait_seconds(seconds):
 
 # Function to visit the URL
 async def visit_url():
-    target_url = input("Enter the URL you want to visit (including http:// or https://): ").strip()
+    target_url = "https://" + input("Enter the URL you want to visit: ").strip() #(including http:// or https://): ").strip()
 
     if not target_url:
         print("Error: The URL cannot be empty.")
