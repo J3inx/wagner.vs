@@ -2,9 +2,6 @@ import asyncio
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
-import os
-import signal
 
 # Proxy details for ScraperAPI (your API key included)
 PROXY_API_URL = "http://api.scraperapi.com?api_key=c171fdfad8a78066023d95db165b3771&url="  # Your ScraperAPI key
@@ -32,17 +29,27 @@ def wait_seconds(seconds):
 
 # Function to visit the URL
 async def visit_url():
-    target_url = input("Enter the URL you want to visit (including http:// or https://): ").strip()
-
-    if not target_url:
-        print("Error: The URL cannot be empty.")
-        return
-    
-    if not target_url.startswith("http://") and not target_url.startswith("https://"):
-        print("Error: The URL must start with 'http://' or 'https://'.")
-        return
-
     try:
+        # Get the target URL from the user
+        target_url = input("Enter the URL you want to visit (including http:// or https://): ").strip()
+
+        if not target_url:
+            print("Error: The URL cannot be empty.")
+            return
+
+        if not target_url.startswith("http://") and not target_url.startswith("https://"):
+            print("Error: The URL must start with 'http://' or 'https://'.")
+            return
+
+        # Input time to be on the website
+        entered = input("How long do you want the site to be open in seconds? (Enter 0 to leave open indefinitely): ").strip()
+        
+        try:
+            entered = int(entered)
+        except ValueError:
+            print("Invalid time input. Please enter a valid integer.")
+            return
+
         # Set up the proxy URL with ScraperAPI
         proxy_address = PROXY_API_URL + target_url
         driver = set_proxy(proxy_address)
@@ -50,21 +57,19 @@ async def visit_url():
         # Visit the URL
         driver.get(target_url)
         
-        # Wait for a while to let the page load (optional)
-        driver.implicitly_wait(10)  # 10 seconds wait
-        
-        # Print the page title
-        print(f"Page title: {driver.title}")
-        
-        # Keep the browser open until the window is manually closed
-        while True:
-            # Check if the window is still open
-            if not driver.window_handles:
-                break
-            time.sleep(1)
-        
-        driver.quit()
+        # Wait for the specified time or indefinitely
+        if entered == 0:
+            print("No time limit entered, the browser will stay open until manually closed.")
+            while True:
+                if not driver.window_handles:
+                    break
+                time.sleep(1)
+        else:
+            print(f"Browser will stay open for {entered} seconds.")
+            wait_seconds(entered)
 
+        driver.quit()
+        print("Browser session ended.")
     except Exception as e:
         print(f"Error opening the URL: {str(e)}")
 
