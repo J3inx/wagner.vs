@@ -43,7 +43,10 @@ i made this in visual studio so i dont know what else i need to do for this but 
 
     ],
     "python.autoComplete.extraPaths": [
-        "~/Desktop/folder/modules"
-    ]
+        "~/Desktop/wagner.vs/modules"
+    ],
+    "terminal.integrated.env.osx": {
+       "PATH": "~/Desktop/wagner.vs/modules/appium"
+    }
 }
 folder in the line above is where you put the folder you used for this
