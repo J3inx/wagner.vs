@@ -17,7 +17,7 @@ load_dotenv()
 print(os.environ['PATH'])
 
 # ProxyCrawl API URL (replace with actual API key)
-PROXY_API_URL = "http://iLxrCSDSSvZzp9ug7f_TjA@smartproxy.crawlbase.com:8012"
+PROXY_API_URL = "http://api.scraperapi.com?api_key=c171fdfad8a78066023d95db165b3771&url="
 
 # Asynchronous function to get proxies using requests
 async def get_proxies():

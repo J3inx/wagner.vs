@@ -1,7 +1,22 @@
 import asyncio
+import sys
+import os
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from dotenv import load_dotenv
+
+# Add the custom module path to sys.path
+sys.path.insert(0, os.path.expanduser('~/Desktop/wagner.vs/modules'))
+custom_modules_path = os.path.expanduser('~/Desktop/wagner.vs/modules')  # Use absolute path
+if custom_modules_path not in sys.path:
+    sys.path.append(custom_modules_path)
+
+# Load environment variables from the .env file
+load_dotenv()
+
+# Print the PATH environment variable to verify dotenv is working
+print(os.environ['PATH'])
 
 # Proxy details for ScraperAPI (your API key included)
 PROXY_API_URL = "http://api.scraperapi.com?api_key=c171fdfad8a78066023d95db165b3771&url="  # Your ScraperAPI key
@@ -11,9 +26,9 @@ def set_proxy(proxy_address):
     # Define ChromeOptions
     options = Options()
 
-    # Enable mobile emulation (for iPhone X)
+    # Enable mobile emulation (for iPhone X) - using only 'deviceName'
     mobile_emulation = {
-        "deviceName": "iPhone X"
+        "deviceName": "iPhone X"  # Emulate iPhone X; this can be adjusted to other devices as needed
     }
     options.add_experimental_option("mobileEmulation", mobile_emulation)
 
@@ -31,7 +46,7 @@ def wait_seconds(seconds):
 async def visit_url():
     try:
         # Get the target URL from the user
-        target_url = input("Enter the URL you want to visit (including http:// or https://): ").strip()
+        target_url = "https://" + input("Enter the URL you want to visit (including http:// or https://): ").strip()
 
         if not target_url:
             print("Error: The URL cannot be empty.")
@@ -73,9 +88,22 @@ async def visit_url():
     except Exception as e:
         print(f"Error opening the URL: {str(e)}")
 
+# Function for app emulation (blank for now, to be filled later)
+async def app_emulation():
+    print("App emulation selected. This section is currently empty.")
+    # TODO: Add app emulation code here when you're ready
+
 # Main entry point
 async def main():
-    await visit_url()
+    # Ask the user whether to run mobile or app emulation
+    emulation_type = input("Do you want to run web emulation or app emulation? (Enter 'web' or 'app'): ").strip().lower()
+
+    if emulation_type == 'web':
+        await visit_url()  # Run the mobile emulation (webpage emulation)
+    elif emulation_type == 'app':
+        await app_emulation()  # Blank function for app emulation (to be filled later)
+    else:
+        print("Invalid input. Please enter 'web' or 'app'.")
 
 # Run the program
 asyncio.run(main())
