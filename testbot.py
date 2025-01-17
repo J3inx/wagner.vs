@@ -1,16 +1,9 @@
-import asyncio
-import sys
 import os
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from appium import webdriver as appium_webdriver
 from dotenv import load_dotenv
-
-# Add the custom module path to sys.path
-sys.path.insert(0, os.path.expanduser('~/Desktop/wagner.vs/modules'))
-custom_modules_path = os.path.expanduser('~/Desktop/wagner.vs/modules')  # Use absolute path
-if custom_modules_path not in sys.path:
-    sys.path.append(custom_modules_path)
 
 # Load environment variables from the .env file
 load_dotenv()
@@ -43,7 +36,7 @@ def wait_seconds(seconds):
     time.sleep(seconds)
 
 # Function to visit the URL
-async def visit_url():
+def visit_url():
     try:
         # Get the target URL from the user
         target_url = "https://" + input("Enter the URL you want to visit (including http:// or https://): ").strip()
@@ -88,22 +81,39 @@ async def visit_url():
     except Exception as e:
         print(f"Error opening the URL: {str(e)}")
 
-# Function for app emulation (blank for now, to be filled later)
-async def app_emulation():
-    print("App emulation selected. This section is currently empty.")
-    # TODO: Add app emulation code here when you're ready
+# Function for app emulation (updated)
+def app_emulation():
+    print("App emulation selected. Setting up the appium driver...")
+
+    # Desired capabilities
+    desired_capabilities = {
+       "platformName": "Android",  # or 'iOS' if targeting iOS
+       "deviceName": "device2",  # Change to your emulator or device name
+       "app": os.path.expanduser("~/Desktop/wagner.vs/app-location"),  # Path to your APK
+       "automationName": "UiAutomator2",  # Automation framework
+    }
+
+    # Connect to the Appium server
+    driver = appium_webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_capabilities)
+
+    # Perform actions on the app (e.g., find an element and click it)
+    element = driver.find_element("id", "com.example:id/button")
+    element.click()
+
+    # Close the session
+    driver.quit()
 
 # Main entry point
-async def main():
+def main():
     # Ask the user whether to run mobile or app emulation
     emulation_type = input("Do you want to run web emulation or app emulation? (Enter 'web' or 'app'): ").strip().lower()
 
     if emulation_type == 'web':
-        await visit_url()  # Run the mobile emulation (webpage emulation)
+        visit_url()  # Run the mobile emulation (webpage emulation)
     elif emulation_type == 'app':
-        await app_emulation()  # Blank function for app emulation (to be filled later)
+        app_emulation()  # Run app emulation
     else:
         print("Invalid input. Please enter 'web' or 'app'.")
 
 # Run the program
-asyncio.run(main())
+main()
