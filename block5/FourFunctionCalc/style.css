@@ -4,11 +4,12 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #c3ac70;
 
 }
 #CalcuChesta{
     font-family:Arial, Helvetica, sans-serif;
-    background-color: khaki;
+    background-color: hsl(0,0%,15%);
     max-width: 500px;
     overflow: hidden;
 
@@ -40,4 +41,10 @@ button{
 }
 button:hover{
     background-color: hsl(0,0%,40%);
+}
+.operation-btn{
+    background-color: hsl(35,100%,55%)
+}
+.operation-btn:hover{
+    background-color: hsl(35,100%,75%)
 }
