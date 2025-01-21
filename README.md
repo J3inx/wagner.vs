@@ -13,9 +13,8 @@ python3 testbot.py
 ```
 from there it should just ask you:
 ```bash
-Enter the URL you want to visit (including http:// or https://): 
+Enter the URL you want to visit (excluding http://, or https://:): 
 ```
->(been meaning to just auto put https:// but you have to do it manually)
 
 happy cheating!
 
@@ -23,12 +22,17 @@ happy cheating!
 
 ## next up on my list of things to do for this
 - [x] start working on the damn thing
-- [ ] figure out how to use the referall code from just the web
+- [x] figure out how to use the referall code from just the web
+    (didn't work)
 - [ ] (optional) if that doesnt work, figure out how to emulate the app or something from this script
 - [ ] start working on the bot and it detecting and clicking specified needed items
 - [ ] more tbd?
 
 ### most recent updates:
+
+<sup>1/16/25: found a mobile emulator and an apk that i need for shein, might need to find a different emulator than android studio that can be installed from the command line but this is the best i've got so far</sup>
+
+
 
 <sup>the shein games only really working on the mobile
 app. will keep working on it but useful for gettin
