@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", function() {
         if (xmp.value.length < 1 || isNaN(xmp.value)) failure("Xmp");
 
         if (failureMessages.length === 1) {
-            logger.value = `One failure detected: ${failureMessages[0]}.`;
+            logger.value = `One failure detected: ${failureMessages[0]}. Input is either invalid or empty.`;
         } else if (failureMessages.length > 1) {
-            logger.value = `Multiple failures detected: ${failureMessages.join(", ")}.`;
+            logger.value = `Multiple failures detected: ${failureMessages.join(", ")}, are either invalid or empty.`;
         } else {
             logger.value = "All inputs are valid.";
 
