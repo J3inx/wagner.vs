@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A Muzzle Velocity CalcuChesta</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="CalcuChesta">
+            calcuchesta
+            
+            <div id="inputs">
+                <h1>Muzzle Velocity in Feet per Second</h1>
+                <div id="display">
+                    <input type="text" readonly>
+                </div>
+
+                <!-- Existing Inputs with Placeholder -->
+                <h2>Bullet Mass in grams</h2>
+                <input type="text" id="mas" placeholder="e.g., 3.56">
+                <h2>Bore Diameter in inches</h2>
+                <input type="text" id="bor" placeholder="e.g., 0.25">
+                <h2>Barrel Length in inches</h2>
+                <input type="text" id="len" placeholder="e.g., 10">
+                <h2>Average Propellant Pressure in psi</h2>
+                <input type="text" id="prop" placeholder="e.g., 52000">
+
+                <!-- New Inputs with Placeholder -->
+                <h2>Maximum Theoretical Velocity (Vmax) in fps</h2>
+                <input type="text" id="vmax" placeholder="e.g., 1200">
+                <h2>Distance at Pressure Peak (Xmp) in inches</h2>
+                <input type="text" id="xmp" placeholder="e.g., 0.5">
+                <h2>Case Length in inches</h2>
+                <input type="text" id="case-length" placeholder="e.g., 0.75">
+            </div>
+        </div>
+
+        <div id="calculatorial">
+            <!-- Calculate Button -->
+            <button id="calculate-btn" class="operation-btn">
+                Calculate!
+            </button>
+        </div>
+
+        <div id="errors">
+            <input type="text" id="log" readonly>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>
