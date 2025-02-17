@@ -1,0 +1,26 @@
+Command: /Users/brodywagner/.espressif/python_env/idf5.5_py3.10_env/bin/python /Users/brodywagner/esp/esp-idf/tools/idf_monitor.py -p /dev/cu.usbmodem1101 -b 9600 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /Users/brodywagner/Desktop/wagner.vs/meFiguringEspOut/examples/get-started/hello_world/build/hello_world.elf /Users/brodywagner/Desktop/wagner.vs/meFiguringEspOut/examples/get-started/hello_world/build/bootloader/bootloader.elf -m '/Users/brodywagner/.espressif/python_env/idf5.5_py3.10_env/bin/python' '/Users/brodywagner/esp/esp-idf/tools/idf.py' '-p' '/dev/cu.usbmodem1101'
+[0;33m--- esp-idf-monitor 1.5.0 on /dev/cu.usbmodem1101 9600[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40041a79: ets_delay_us in ROM
+[0m
+[1;31m--- Error: read failed: [Errno 6] Device not configured[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m[0m
+[0;33m--- 0x403758d0: esp_restart_noos at /Users/brodywagner/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x403c8700: _stext at ??:?
+[0m
+[0;33m--- 0x403c8924: call_start_cpu0 at /Users/brodywagner/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c:25
+[0m
+[0;33m--- 0x403758d0: esp_restart_noos at /Users/brodywagner/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x403c8700: _stext at ??:?
+[0m
+[0;33m--- 0x403c8924: call_start_cpu0 at /Users/brodywagner/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c:25
+[0m
+[0;33m--- 0x403758d0: esp_restart_noos at /Users/brodywagner/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c:160
+[0m
+[0;33m--- 0x403c8700: _stext at ??:?
+[0m
+[0;33m--- 0x403c8924: call_start_cpu0 at /Users/brodywagner/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c:25
+[0m
+[0m

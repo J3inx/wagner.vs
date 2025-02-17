@@ -1,0 +1,231 @@
+Command: /Users/brodywagner/.espressif/python_env/idf5.5_py3.10_env/bin/python /Users/brodywagner/esp/esp-idf/tools/idf_monitor.py -p /dev/cu.usbmodem1101 -b 9600 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /Users/brodywagner/Desktop/wagner.vs/meFiguringEspOut/examples/get-started/hello_world/build/hello_world.elf /Users/brodywagner/Desktop/wagner.vs/meFiguringEspOut/examples/get-started/hello_world/build/bootloader/bootloader.elf -m '/Users/brodywagner/.espressif/python_env/idf5.5_py3.10_env/bin/python' '/Users/brodywagner/esp/esp-idf/tools/idf.py' '-p' '/dev/cu.usbmodem1101'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x0 (DOWNLOAD(USB/UART0))
+Saved PC:0x40041a79
+waiting for download
+Restarting in 9 seconds...
+Restarting in 8 seconds...
+Restarting in 7 seconds...
+Restarting in 6 seconds...
+Restarting in 5 seconds...
+Restarting in 4 seconds...
+Restarting in 3 seconds...
+Restarting in 2 seconds...
+Restarting in 1 seconds...
+Restarting in 0 seconds...
+Restarting now.
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403758d0
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x15d0
+load:0x403c8700,len:0xd20
+load:0x403cb700,len:0x2f60
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5-dev-1860-g0d6099ec53 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Feb 17 2025 00:11:35[0m
+[0;32mI (24) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (29) boot: efuse block revision: v1.3[0m
+[0;32mI (32) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (36) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=07e64h ( 32356) map[0m
+[0;32mI (93) esp_image: segment 1: paddr=00017e8c vaddr=3fc92000 size=02868h ( 10344) load[0m
+[0;32mI (97) esp_image: segment 2: paddr=0001a6fc vaddr=40374000 size=0591ch ( 22812) load[0m
+[0;32mI (107) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=13814h ( 79892) map[0m
+[0;32mI (124) esp_image: segment 4: paddr=0003383c vaddr=4037991c size=085dch ( 34268) load[0m
+[0;32mI (132) esp_image: segment 5: paddr=0003be20 vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (138) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (138) boot: Disabling RNG early entropy source...[0m
+[0;32mI (149) cpu_start: Multicore app[0m
+[0;32mI (159) cpu_start: Pro cpu start user code[0m
+[0;32mI (159) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (159) app_init: Application information:[0m
+[0;32mI (159) app_init: Project name:     hello_world[0m
+[0;32mI (163) app_init: App version:      a1154ca[0m
+[0;32mI (167) app_init: Compile time:     Feb 17 2025 00:11:29[0m
+[0;32mI (172) app_init: ELF file SHA256:  240f48b01...[0m
+[0;32mI (176) app_init: ESP-IDF:          v5.5-dev-1860-g0d6099ec53[0m
+[0;32mI (182) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (186) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (190) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (194) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (200) heap_init: At 3FC950B0 len 00054660 (337 KiB): RAM[0m
+[0;32mI (205) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (210) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (215) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;32mI (221) spi_flash: detected chip: generic[0m
+[0;32mI (224) spi_flash: flash io: dio[0m
+[0;33mW (227) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (240) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (246) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (253) main_task: Started on CPU0[0m
+[0;32mI (263) main_task: Calling app_main()[0m
+Hello world!
+This is esp32s3 chip with 2 CPU core(s), WiFi/BLE, silicon revision v0.2, 2MB external flash
+Minimum free heap size: 392852 bytes
+Restarting in 10 seconds...
+Restarting in 9 seconds...
+Restarting in 8 seconds...
+Restarting in 7 seconds...
+Restarting in 6 seconds...
+Restarting in 5 seconds...
+Restarting in 4 seconds...
+Restarting in 3 seconds...
+Restarting in 2 seconds...
+Restarting in 1 seconds...
+Restarting in 0 seconds...
+Restarting now.
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403758d0
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x15d0
+load:0x403c8700,len:0xd20
+load:0x403cb700,len:0x2f60
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5-dev-1860-g0d6099ec53 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Feb 17 2025 00:11:35[0m
+[0;32mI (24) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (29) boot: efuse block revision: v1.3[0m
+[0;32mI (32) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (36) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=07e64h ( 32356) map[0m
+[0;32mI (93) esp_image: segment 1: paddr=00017e8c vaddr=3fc92000 size=02868h ( 10344) load[0m
+[0;32mI (97) esp_image: segment 2: paddr=0001a6fc vaddr=40374000 size=0591ch ( 22812) load[0m
+[0;32mI (107) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=13814h ( 79892) map[0m
+[0;32mI (124) esp_image: segment 4: paddr=0003383c vaddr=4037991c size=085dch ( 34268) load[0m
+[0;32mI (132) esp_image: segment 5: paddr=0003be20 vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (138) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (138) boot: Disabling RNG early entropy source...[0m
+[0;32mI (149) cpu_start: Multicore app[0m
+[0;32mI (159) cpu_start: Pro cpu start user code[0m
+[0;32mI (159) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (159) app_init: Application information:[0m
+[0;32mI (159) app_init: Project name:     hello_world[0m
+[0;32mI (163) app_init: App version:      a1154ca[0m
+[0;32mI (167) app_init: Compile time:     Feb 17 2025 00:11:29[0m
+[0;32mI (172) app_init: ELF file SHA256:  240f48b01...[0m
+[0;32mI (176) app_init: ESP-IDF:          v5.5-dev-1860-g0d6099ec53[0m
+[0;32mI (182) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (186) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (190) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (194) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (200) heap_init: At 3FC950B0 len 00054660 (337 KiB): RAM[0m
+[0;32mI (205) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (210) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (215) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;32mI (221) spi_flash: detected chip: generic[0m
+[0;32mI (224) spi_flash: flash io: dio[0m
+[0;33mW (227) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (240) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (246) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (253) main_task: Started on CPU0[0m
+[0;32mI (263) main_task: Calling app_main()[0m
+Hello world!
+This is esp32s3 chip with 2 CPU core(s), WiFi/BLE, silicon revision v0.2, 2MB external flash
+Minimum free heap size: 392852 bytes
+Restarting in 10 seconds...
+Restarting in 9 seconds...
+Restarting in 8 seconds...
+Restarting in 7 seconds...
+Restarting in 6 seconds...
+Restarting in 5 seconds...
+Restarting in 4 seconds...
+Restarting in 3 seconds...
+Restarting in 2 seconds...
+Restarting in 1 seconds...
+Restarting in 0 seconds...
+Restarting now.
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403758d0
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x15d0
+load:0x403c8700,len:0xd20
+load:0x403cb700,len:0x2f60
+entry 0x403c8924
+[0;32mI (24) boot: ESP-IDF v5.5-dev-1860-g0d6099ec53 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Feb 17 2025 00:11:35[0m
+[0;32mI (24) boot: Multicore bootloader[0m
+[0;32mI (26) boot: chip revision: v0.2[0m
+[0;32mI (29) boot: efuse block revision: v1.3[0m
+[0;32mI (32) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (36) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (40) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (44) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (77) boot: End of partition table[0m
+[0;32mI (80) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=07e64h ( 32356) map[0m
+[0;32mI (93) esp_image: segment 1: paddr=00017e8c vaddr=3fc92000 size=02868h ( 10344) load[0m
+[0;32mI (97) esp_image: segment 2: paddr=0001a6fc vaddr=40374000 size=0591ch ( 22812) load[0m
+[0;32mI (107) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=13814h ( 79892) map[0m
+[0;32mI (124) esp_image: segment 4: paddr=0003383c vaddr=4037991c size=085dch ( 34268) load[0m
+[0;32mI (132) esp_image: segment 5: paddr=0003be20 vaddr=600fe000 size=0001ch (    28) load[0m
+[0;32mI (138) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (138) boot: Disabling RNG early entropy source...[0m
+[0;32mI (149) cpu_start: Multicore app[0m
+[0;32mI (159) cpu_start: Pro cpu start user code[0m
+[0;32mI (159) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (159) app_init: Application information:[0m
+[0;32mI (159) app_init: Project name:     hello_world[0m
+[0;32mI (163) app_init: App version:      a1154ca[0m
+[0;32mI (167) app_init: Compile time:     Feb 17 2025 00:11:29[0m
+[0;32mI (172) app_init: ELF file SHA256:  240f48b01...[0m
+[0;32mI (176) app_init: ESP-IDF:          v5.5-dev-1860-g0d6099ec53[0m
+[0;32mI (182) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (186) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (190) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (194) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (200) heap_init: At 3FC950B0 len 00054660 (337 KiB): RAM[0m
+[0;32mI (205) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (210) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (215) heap_init: At 600FE01C len 00001FCC (7 KiB): RTCRAM[0m
+[0;32mI (221) spi_flash: detected chip: generic[0m
+[0;32mI (224) spi_flash: flash io: dio[0m
+[0;33mW (227) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (240) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (246) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (253) main_task: Started on CPU0[0m
+[0;32mI (263) main_task: Calling app_main()[0m
+Hello world!
+This is esp32s3 chip with 2 CPU core(s), WiFi/BLE, silicon revision v0.2, 2MB external flash
+Minimum free heap size: 392852 bytes
+Restarting in 10 seconds...
+Restarting in 9 seconds...
+Restarting in 8 seconds...
+Restarting in 7 seconds...
+Restarting in 6 seconds...
+Restarting in 5 seconds...
+Restarting in 4 seconds...
+Restarting in 3 seconds...
+Restarting in 2 seconds...
+Restarting in 1 seconds...
