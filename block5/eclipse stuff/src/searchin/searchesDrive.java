@@ -1,5 +1,7 @@
 package searchin;
 
+import java.util.Scanner;
+
 public class searchesDrive {
 
 	
@@ -13,6 +15,14 @@ public class searchesDrive {
 		searches object1 = new searches(rocker);
 		object1.printoutarray();
 		object1.shufflearray();
+		Scanner kb = new Scanner(System.in);
+		System.out.println("enter a number to look for:");
+		int input = kb.nextInt();
+		object1.linearsearch(input);
+		object1.bubblesort();
+		System.out.println("enter a number to binary search for:");
+		 input = kb.nextInt();
+		object1.binarysearch(input);
 	}
 //create an instance of the search class sending the array as an arg
 	
