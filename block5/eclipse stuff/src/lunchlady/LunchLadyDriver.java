@@ -32,10 +32,8 @@ public class LunchLadyDriver {
 					System.out.println("what is the name fo the student you want to add?:");
 					String name = kb.next();
 					list.EnQueue(name);
-					//add student
 				}
 				if(x == 3) {
-					//line position changes based on stack of queue
 					list.peek();
 				}
 				if(x == 4) {
@@ -81,7 +79,6 @@ public class LunchLadyDriver {
 					//add student
 				}
 				if(x == 3) {
-					//line position changes based on stack of queue
 					list.peek();
 				}
 				if(x == 4) {
