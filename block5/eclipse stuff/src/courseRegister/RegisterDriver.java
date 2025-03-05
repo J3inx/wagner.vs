@@ -32,7 +32,7 @@ public class RegisterDriver {
 					
 				}
 				if(x ==2) {
-					System.out.println("what is the name fo the student you want to add?:");
+					System.out.println("what is the name of the student you want to add?:");
 					String name = kb.next();
 					Course.addStudent(name);
 					//add student
@@ -82,7 +82,7 @@ public class RegisterDriver {
 					
 				}
 				if(x ==2) {
-					System.out.println("what is the name fo the student you want to add?:");
+					System.out.println("what is the name of the student you want to add?:");
 					String name = kb.next();
 					Course.addStudent(name);
 					//add student
