@@ -11,50 +11,100 @@ public class JackDriver {
 
         setup deck1 = new setup(52);
         
+        
         Scanner kb = new Scanner(System.in);
 
         deck1.setDeck();
+        Pokey poker = new Pokey(52);
+        poker.setDeck();
+        System.out.println("do you want to play poker or blackjack? b/p?");
+        String choiced = kb.next();
+        if(choiced.equalsIgnoreCase("b")) {
+        	 while(true) {
 
-        while(true) {
+                 System.out.println("(1) Play black jack");
 
-            System.out.println("(1) Play black jack");
+                 System.out.println("(2) Shuffle Deck");
 
-            System.out.println("(2) Shuffle Deck");
+                 System.out.println("(3) Print Deck");
 
-            System.out.println("(3) Print Deck");
+                 System.out.println("(4) Exit Casino");
 
-            System.out.println("(4) Exit Casino");
+                 int choice = kb.nextInt();
 
-            int choice = kb.nextInt();
+                 if (choice==1) {
 
-            if (choice==1) {
+                 	deck1.playBJack();
 
-            	deck1.playBJack();
+                 } else if (choice==2) {
 
-            } else if (choice==2) {
+                 	//deck1.shuffle();
 
-            	//deck1.shuffle();
+//                 	System.out.println("Deck Shuffled!");
 
-//            	System.out.println("Deck Shuffled!");
+                 } else if (choice==3) {
 
-            } else if (choice==3) {
+                 	//deck1.printDeck();
 
-            	//deck1.printDeck();
+                 	//System.out.println("Deck Printed!");
 
-            	//System.out.println("Deck Printed!");
+                 } else if (choice==4) {
 
-            } else if (choice==4) {
+                 	
+                 System.out.println("Thanks for playing!");
 
-            	
-            System.out.println("Thanks for playing!");
+                 	break;
 
-            	break;
+                 } else {
 
-            } else {
+                 	System.out.println("Invalid Choice Try Again.");
+     	}
 
-            	System.out.println("Invalid Choice Try Again.");
-	}
+     }	
+        }else {
+        	 while(true) {
 
-}
+                 System.out.println("(1) Play 3 card poker");
+
+                 System.out.println("(2) Shuffle Deck");
+
+                 System.out.println("(3) Print Deck");
+
+                 System.out.println("(4) Exit Casino");
+
+                 int choice = kb.nextInt();
+
+                 if (choice==1) {
+                	 poker.shuffle();
+                 	poker.playPoker();
+
+                 } else if (choice==2) {
+
+                 	poker.shuffle();
+
+                	System.out.println("Deck Shuffled!");
+
+                 } else if (choice==3) {
+
+                 	//poker.printDeck();
+
+                 	//System.out.println("Deck Printed!");
+
+                 } else if (choice==4) {
+
+                 	
+                 System.out.println("Thanks for playing!");
+
+                 	break;
+
+                 } else {
+
+                 	System.out.println("Invalid Choice Try Again.");
+     	}
+
+     }
+        }
+
+       
 	}
 }
