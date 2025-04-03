@@ -10,14 +10,14 @@ public class JackDriver {
 		// TODO Auto-generated method stub
 
         setup deck1 = new setup(52);
-        
+        Yahtzee yaht = new Yahtzee();
         
         Scanner kb = new Scanner(System.in);
 
         deck1.setDeck();
         Pokey poker = new Pokey(52);
         poker.setDeck();
-        System.out.println("do you want to play poker or blackjack? b/p?");
+        System.out.println("do you want to play poker blackjack or yahtzee? b/p/y?");
         String choiced = kb.next();
         if(choiced.equalsIgnoreCase("b")) {
         	 while(true) {
@@ -61,7 +61,7 @@ public class JackDriver {
      	}
 
      }	
-        }else {
+        }else if(choiced.equalsIgnoreCase("p")) {
         	 while(true) {
 
                  System.out.println("(1) Play 3 card poker");
@@ -81,6 +81,53 @@ public class JackDriver {
                  } else if (choice==2) {
 
                  	poker.shuffle();
+
+                	System.out.println("Deck Shuffled!");
+
+                 } else if (choice==3) {
+
+                 	//poker.printDeck();
+
+                 	//System.out.println("Deck Printed!");
+
+                 } else if (choice==4) {
+
+                 	
+                 System.out.println("Thanks for playing!");
+
+                 	break;
+
+                 } else {
+
+                 	System.out.println("Invalid Choice Try Again.");
+     	}
+
+     }
+        }else {
+        	 while(true) {
+
+                 System.out.println("(1) Play yahtzee");
+
+                 System.out.println("(2) Shuffle Deck");
+
+                 System.out.println("(3) [unused]");
+
+                 System.out.println("(4) Exit Casino");
+
+                 int choice = kb.nextInt();
+
+                 if (choice==1) {
+                	 try {
+						yaht.play();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+                 	
+
+                 } else if (choice==2) {
+
+                 	//poker.shuffle();
 
                 	System.out.println("Deck Shuffled!");
 
