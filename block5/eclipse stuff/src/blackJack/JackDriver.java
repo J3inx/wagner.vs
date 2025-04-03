@@ -2,6 +2,8 @@ package blackJack;
 
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+
 
 
 public class JackDriver {
@@ -117,6 +119,8 @@ public class JackDriver {
                  int choice = kb.nextInt();
 
                  if (choice==1) {
+                	 Yahtzee game = new Yahtzee();
+                	JFrame gui = new JFrame();
                 	 try {
 						yaht.play();
 					} catch (InterruptedException e) {
