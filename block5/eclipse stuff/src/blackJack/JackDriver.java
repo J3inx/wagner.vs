@@ -112,7 +112,7 @@ public class JackDriver {
 
                  System.out.println("(2) Shuffle Deck");
 
-                 System.out.println("(3) [unused]");
+                 System.out.println("(3) play visual yahtzee");
 
                  System.out.println("(4) Exit Casino");
 
@@ -120,7 +120,7 @@ public class JackDriver {
 
                  if (choice==1) {
                 	 Yahtzee game = new Yahtzee();
-                	JFrame gui = new JFrame();
+                	
                 	 try {
 						yaht.play();
 					} catch (InterruptedException e) {
@@ -137,9 +137,9 @@ public class JackDriver {
 
                  } else if (choice==3) {
 
-                 	//poker.printDeck();
-
-                 	//System.out.println("Deck Printed!");
+                 	//visual yahtzee                	 
+                	 VYahtzee game = new VYahtzee();
+                	 
 
                  } else if (choice==4) {
 
