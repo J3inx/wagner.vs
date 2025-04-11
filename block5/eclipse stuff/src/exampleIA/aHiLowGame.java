@@ -96,7 +96,7 @@ public class aHiLowGame {
 	    }
 	    public void HiLo() {
 	        // Set up the initial state and display
-	        gui.write("How much would you like to bet? Current balance is: " + bankChanges() + " (put $ after you're done)");
+	        gui.write("How much would you like to bet? Current balance is: " + bankChanges() );
 
 	
 	        gui.write("Please place your bet by entering an amount in the text field and clicking Submit.");
