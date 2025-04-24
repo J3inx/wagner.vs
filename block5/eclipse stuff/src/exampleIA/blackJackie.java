@@ -33,6 +33,7 @@ public class blackJackie {
 
 	   
 	    public blackJackie(gamesGUI gui) {
+	 
 	    	cards = new String[52];
 	    	this.gui = gui;
 	    	
@@ -71,7 +72,7 @@ public class blackJackie {
 	            cards[j] = temp;
 	        }
 	    }
-
+	    
 	    
 	    public void playBJack() {
 	    	cards = new String[52];
@@ -154,11 +155,16 @@ public class blackJackie {
 	    }
 	    public void hit() {
 	    	Dealer(3);
+	    	System.out.println("hitted");
 	    }
 	    public void stand() {
 	    	Dealer(4);
+	    	System.out.println("stood");
+	    	
 	    }
+	  
 	    public void Dealer(int action) { 
+	    	System.out.println(action);
 	        if (action == 1) {
 	            int turn = 0;
 	            int cardIndex = 0; // Tracks dealt cards
@@ -186,6 +192,7 @@ public class blackJackie {
 	                    if (cpu2Hand.size() == 2) turn++;
 	                } 
 	                else if (turn == 3) { // CPU 3
+	                	System.out.println("tie");
 	                    if (cpu3Hand.size() < 2) {
 	                        cpu3Hand.add(cards[cardIndex]);
 	                        cardIndex++;
@@ -203,57 +210,53 @@ public class blackJackie {
 
 	            // Print player's hand
 	            gui.write("Player has: " + playerHand.get(0) + " and " + playerHand.get(1));
-	            gui.write("cpu1 has : " + cpu1Hand.get(0));
-	            gui.write("cpu2 has : " + cpu2Hand.get(0));
-	            gui.write("cpu3 has : " + cpu3Hand.get(0));
-	            gui.write("and the dealer has: " + DealerHand.get(0));
+	            gui.write("cpu1 has : " + cpu1Hand.get(0) + " and: Hidden");
+	            gui.write("cpu2 has : " + cpu2Hand.get(0)+ " and: Hidden");
+	            gui.write("cpu3 has : " + cpu3Hand.get(0)+ " and: Hidden");
+	            gui.write("and the dealer has: " + DealerHand.get(0)+ " and: Hidden");
 	            Dealer(2);
 	        }
 	        if(action == 2 && playerStood == false) {
 	        	if(turns == 0) {
-	        		String card1 = playerHand.get(0);
+	        		//String card1 = playerHand.get(0);
 	            	
-	            	String card2 = playerHand.get(1);
+	            	//String card2 = playerHand.get(1);
 	            	
-	            	if(card1.charAt(0) == card2.charAt(0)){
+	            	
 	            		
-	        	System.out.println("would you like to hit or stand?");
-	        	String choice = kb.next();
-	        	if(choice.equalsIgnoreCase("h")) {
-	        		Dealer(3);
-	        	}else if(choice.equalsIgnoreCase("s")) {
-	        		Dealer(4);
-	        	}else {
-	        		Dealer(8);
-	        	}
+	        	gui.write("would you like to hit or stand?");
+
+	        
 	        }
 	        }
 	        if(action ==3) {
-	        	/*hit
+	        	
 	        	playerHand.add(cards[currentCard]);
 	        	if(getHandValue(playerHand)>21) {
-	        		System.out.println("you drew a " + cards[currentCard] );
-	        		System.out.println("you bust!");
+	        		gui.write("you drew a " + cards[currentCard] );
+	        		gui.write("you bust!");
 	        		playerStood = true;
 	        		aiTurns();
 	        	}else {
-	        		System.out.println("you drew a " + cards[currentCard] );
+	        		System.out.println("hello");
+	        		gui.write("you drew a " + cards[currentCard] );
 	            	currentCard++;
 	            	turns++;
 	            	Dealer(7);
 	        	}
 	        	
 	        }
-	        */
+	      
 	        if(action ==4) {
 	        	//stand
+	        	System.out.println("stood");
 	        	standings++;
 	        	playerStood=true;
 	        	aiTurns();
 	        }
 	        if(action == 5) {
 	        	playerHand.add(cards[currentCard]);
-	        	System.out.println("you drew a " + cards[currentCard] );
+	        	gui.write("you drew a " + cards[currentCard] );
 	        	currentCard++;
 	        	standings ++;
 	        	bet = bet*2;
@@ -272,43 +275,43 @@ public class blackJackie {
 	        	for(int i = 0; i<playerHand.size(); i++) {
 	        		System.out.print(playerHand.get(i) + " ");
 	        	}
-	        	System.out.println("");
-	        	System.out.print("cpu1 has: ");
+	        	gui.write("");
+	        	gui.write("cpu1 has: ", true);
 	        	for(int i = 0; i<cpu1Hand.size(); i++) {
 	        		if(!(i==1)) {
-	        		System.out.print(cpu1Hand.get(i) + " ");
+	        			gui.write(cpu1Hand.get(i) + " ", true);
 	        		}else {
-	        			System.out.print("hidden ");
+	        			gui.write("hidden ", true);
 	        		}
 	        	}
-	        	System.out.println("");
-	        	System.out.print("cpu2 has: ");
+	        	gui.write("");
+	        	gui.write("cpu2 has: ", true);
 	        	for(int i = 0; i<cpu2Hand.size(); i++) {
 	        		if(!(i==1)) {
-	        		System.out.print(cpu2Hand.get(i) + " ");
+	        			gui.write(cpu2Hand.get(i) + " ", true);
 	        		}else {
-	        			System.out.print("hidden ");
+	        			gui.write("hidden ", true);
 	        		}
 	        	}
-	        	System.out.println("");
-	        	System.out.print("cpu3 has: ");
+	        	gui.write("");
+	        	gui.write("cpu3 has: ", true);
 	        	for(int i = 0; i<cpu3Hand.size(); i++) {
 	        		if(!(i==1)) {
-	        		System.out.print(cpu3Hand.get(i) + " ");
+	        			gui.write(cpu3Hand.get(i) + " ",true);
 	        		}else {
-	        			System.out.print("hidden ");
+	        			gui.write("hidden ", true);
 	        		}
 	        	}
-	        	System.out.println("");
-	        	System.out.print("dealer has: ");
+	        	gui.write("");
+	        	gui.write("dealer has: ", true);
 	        	for(int i = 0; i<DealerHand.size(); i++) {
 	        		if(!(i==1)) {
-	        		System.out.print(DealerHand.get(i) + " ");
+	        			gui.write(DealerHand.get(i) + " ", true);
 	        		}else {
-	        			System.out.print("hidden ");
+	        			gui.write("hidden ", true);
 	        		}
 	        	}
-	        	System.out.println("");
+	        	gui.write("");
 	        	Dealer(2);
 	        }
 	        if (action == 9) {
@@ -368,31 +371,27 @@ public class blackJackie {
 	                winnerName = "Dealer";
 	            }
 
-	            System.out.println(winnerName + " wins with a hand value of " + highest + "!");
+	            gui.write(winnerName + " wins with a hand value of " + highest + "!");
 	            
 	            // Print the winning hand
 	            if (winningHand != null) {
-	                System.out.print(winnerName + "'s hand: ");
+	            	gui.write(winnerName + "'s hand: ", true);
 	                for (String card : winningHand) {
-	                    System.out.print(card + " ");
+	                	gui.write(card + " ", true);
 	                }
-	                System.out.println("your new bank balance is: " + bankChanges());
+	                gui.write("");
 	            }
 
 	            // Prompt to play another hand
-	            System.out.println("Would you like to play another hand? y/n?");
-	            String choice = kb.next();
-	            if (choice.equalsIgnoreCase("y")) {
+	            
+	            
 	                resetDeck();
-	            } else {
-	                System.exit(1);
-	            }
-	        }
+	            
 	        }
 	        }
 
 
-	    }
+	    
 	    public void aiTurns() {
 	        boolean singleTurn = !playerStood; // If the player hasn't stood, AI only takes one action per call.
 
@@ -403,21 +402,21 @@ public class blackJackie {
 	            if (!cpu1stood) {
 	                int cpu1Value = getHandValue(cpu1Hand);
 	                if (cpu1Value > 21) {
-	                    System.out.println("cpu1 has bust");
+	                	gui.write("cpu1 has bust");
 	                    standings++;
 	                    printHand(cpu1Hand, "cpu1");
 	                    cpu1stood = true;
 	                } else if (cpu1Value < 15) {
 	                    if (currentCard < cards.length) {
 	                        cpu1Hand.add(cards[currentCard]);
-	                        System.out.println("cpu1 drew a " + cards[currentCard]);
+	                        gui.write("cpu1 drew a " + cards[currentCard]);
 	                        currentCard++;
 	                    } else {
-	                        System.out.println("Deck is empty!");
+	                    	gui.write("Deck is empty!");
 	                    }
 	                } else {
 	                    cpu1stood = true;
-	                    System.out.println("cpu1 has stood");
+	                    gui.write("cpu1 has stood");
 	                    standings++;
 	                }
 	                actionTaken = true;
@@ -427,21 +426,21 @@ public class blackJackie {
 	            if (!cpu2stood) {
 	                int cpu2Value = getHandValue(cpu2Hand);
 	                if (cpu2Value > 21) {
-	                    System.out.println("cpu2 has bust");
+	                	gui.write("cpu2 has bust");
 	                    standings++;
 	                    printHand(cpu2Hand, "cpu2");
 	                    cpu2stood = true;
 	                } else if (cpu2Value < 15) {
 	                    if (currentCard < cards.length) {
 	                        cpu2Hand.add(cards[currentCard]);
-	                        System.out.println("cpu2 drew a " + cards[currentCard]);
+	                        gui.write("cpu2 drew a " + cards[currentCard]);
 	                        currentCard++;
 	                    } else {
-	                        System.out.println("Deck is empty!");
+	                    	gui.write("Deck is empty!");
 	                    }
 	                } else {
 	                    cpu2stood = true;
-	                    System.out.println("cpu2 has stood");
+	                    gui.write("cpu2 has stood");
 	                    standings++;
 	                }
 	                actionTaken = true;
@@ -451,21 +450,21 @@ public class blackJackie {
 	            if (!cpu3stood) {
 	                int cpu3Value = getHandValue(cpu3Hand);
 	                if (cpu3Value > 21) {
-	                    System.out.println("cpu3 has bust");
+	                	gui.write("cpu3 has bust");
 	                    standings++;
 	                    printHand(cpu3Hand, "cpu3");
 	                    cpu3stood = true;
 	                } else if (cpu3Value < 15) {
 	                    if (currentCard < cards.length) {
 	                        cpu3Hand.add(cards[currentCard]);
-	                        System.out.println("cpu3 drew a " + cards[currentCard]);
+	                        gui.write("cpu3 drew a " + cards[currentCard]);
 	                        currentCard++;
 	                    } else {
-	                        System.out.println("Deck is empty!");
+	                    	gui.write("Deck is empty!");
 	                    }
 	                } else {
 	                    cpu3stood = true;
-	                    System.out.println("cpu3 has stood");
+	                    gui.write("cpu3 has stood");
 	                    standings++;
 	                }
 	                actionTaken = true;
@@ -475,21 +474,21 @@ public class blackJackie {
 	            if (!dealerstood) {
 	                int dealerValue = getHandValue(DealerHand);
 	                if (dealerValue > 21) {
-	                    System.out.println("Dealer has bust");
+	                	gui.write("Dealer has bust");
 	                    standings++;
 	                    printHand(DealerHand, "Dealer");
 	                    dealerstood = true;
 	                } else if (dealerValue < 15) {
 	                    if (currentCard < cards.length) {
 	                        DealerHand.add(cards[currentCard]);
-	                        System.out.println("Dealer drew a " + cards[currentCard]);
+	                        gui.write("Dealer drew a " + cards[currentCard]);
 	                        currentCard++;
 	                    } else {
-	                        System.out.println("Deck is empty!");
+	                    	gui.write("Deck is empty!");
 	                    }
 	                } else {
 	                    dealerstood = true;
-	                    System.out.println("Dealer has stood");
+	                    gui.write("Dealer has stood");
 	                    standings++;
 	                }
 	                actionTaken = true;
@@ -510,11 +509,11 @@ public class blackJackie {
 	    }
 
 	    private void printHand(List<String> hand, String playerName) {
-	        System.out.print(playerName + " had: ");
+	    	gui.write(playerName + " had: ", true);
 	        for (int i = 0; i < hand.size(); i++) {
-	            System.out.print(hand.get(i) + " ");
+	        	gui.write(hand.get(i) + " ", true);
 	        }
-	        System.out.println("");
+	        gui.write("");
 	    }
 	    public void resetDeck(){
 	    	turns = 0;
