@@ -12,10 +12,11 @@ import javax.swing.JTextArea;
 public class gamesGUI extends JFrame implements ActionListener{
 	public String [] games = {"", "hi-low", "blackjack", "3 card poker", "yahtzee"};
 	public JComboBox gameBox;
-	public JButton selectGameButton, exitButton, hiButton, lowButton, hlStartButton, submitButton;
+	public JButton selectGameButton, exitButton, hiButton, lowButton, hlStartButton, submitButton, BjHit, BjStand;
 	public JTextArea gameBoard, respondBoard;
 	public String choice = "";
 	public aHiLowGame hlGame = new aHiLowGame(this);
+	public blackJackie BJ = null;
 	public int card = -1;
 
 	public gamesGUI() {
@@ -53,14 +54,13 @@ public class gamesGUI extends JFrame implements ActionListener{
 	    gameBoard.setLineWrap(true);
 	    gameBoard.setEditable(false);
 	    add(gameBoard);
-
 	    respondBoard = new JTextArea(1,1);
 	    respondBoard.setVisible(true);
 	    respondBoard.setBackground(Color.pink);
 	    respondBoard.setBounds(110,430,400,30);
 	    respondBoard.setEditable(true);
 	    add(respondBoard);
-
+	    BJ = new blackJackie(this);
 	    
 	    exitButton = new JButton("exit");
 	    exitButton.setVisible(true);
@@ -89,11 +89,24 @@ public class gamesGUI extends JFrame implements ActionListener{
 	    hlStartButton.setBounds(600,300,200,20);
 	    hlStartButton.addActionListener(this);
 	    add(hlStartButton);
+	    BjHit = new JButton("hit");
+	    BjHit.setVisible(false);
+	    BjHit.setForeground(new Color(55,75,250));
+	    BjHit.setBounds(600,350,200,20);
+	    BjHit.addActionListener(this);
+	    add(BjHit);
+	    BjStand = new JButton("stand");
+	    BjStand.setVisible(false);
+	    BjStand.setForeground(new Color(55,75,250));
+	    BjStand.setBounds(600,400,200,20);
+	    BjStand.addActionListener(this);
+	    add(BjStand);
 	}
 
 	public void showHiLoButtons(boolean show) {
 	    hiButton.setVisible(show);
 	    lowButton.setVisible(show);
+	    hlStartButton.setVisible(true);
 	   
 	}
 
@@ -112,12 +125,22 @@ public class gamesGUI extends JFrame implements ActionListener{
 		}
 
 		if(rst.equals("start game")) {
-			hlGame.starter();
-			hlGame.HiLo();
-			hiButton.setVisible(false);
-			lowButton.setVisible(false);
-			hlStartButton.setVisible(false);
-			submitButton.setVisible(true);
+			if(choice == games[1]) {
+				hlGame.starter();
+				hlGame.HiLo();
+				hiButton.setVisible(false);
+				lowButton.setVisible(false);
+				hlStartButton.setVisible(false);
+				submitButton.setVisible(true);	
+			}
+			if(choice == games[2]) {
+				
+				BJ.playBJack();
+				BjHit.setVisible(true);
+				BjStand.setVisible(true);
+				hlStartButton.setVisible(false);
+			}
+			
 		}
 		if(rst.equals("exit")) {
 			System.exit(0);
@@ -153,10 +176,10 @@ while(choice == games[3]) {
 	}
 
 	private void blackjack() {
-		gameBoard.setText(games[2]);
-while(choice == games[2]) {
-			
-		}
+		//gameBoard.setText(games[2]);
+		BjHit.setVisible(false);
+		BjStand.setVisible(false);
+		hlStartButton.setVisible(true);
 	}
 
 	private void hilow() {
@@ -164,6 +187,7 @@ while(choice == games[2]) {
 //while(choice == games[1]) {
 			
 	//	}
+		
 		hiButton.setVisible(false);
 		lowButton.setVisible(false);
 		hlStartButton.setVisible(true);
