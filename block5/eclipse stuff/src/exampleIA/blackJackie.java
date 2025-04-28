@@ -118,7 +118,7 @@ public class blackJackie {
 	                    value += cardValue;
 	                }
 	            } else {
-	                System.out.println("Invalid card value: " + rank);
+	                gui.write("Invalid card value: " + rank);
 	            }
 	        }
 
@@ -165,57 +165,59 @@ public class blackJackie {
 	  
 	    public void Dealer(int action) { 
 	    	System.out.println(action);
-	        if (action == 1) {
-	            int turn = 0;
-	            int cardIndex = 0; // Tracks dealt cards
+	    	if (action == 1) {
+	    	    int turn = 0;
+	    	    int cardIndex = 0;
 
-	            while (cardIndex < 10) {
-	                if (turn == 0) { // Player's turn
-	                    if (playerHand.size() < 2) {
-	                        playerHand.add(cards[cardIndex]); // Assign card from deck
-	                        cardIndex++;
-	                    }
-	                    if (playerHand.size() == 2) turn++; // Move to next player
-	                } 
-	                else if (turn == 1) { // CPU 1
-	                    if (cpu1Hand.size() < 2) {
-	                        cpu1Hand.add(cards[cardIndex]);
-	                        cardIndex++;
-	                    }
-	                    if (cpu1Hand.size() == 2) turn++;
-	                } 
-	                else if (turn == 2) { // CPU 2
-	                    if (cpu2Hand.size() < 2) {
-	                        cpu2Hand.add(cards[cardIndex]);
-	                        cardIndex++;
-	                    }
-	                    if (cpu2Hand.size() == 2) turn++;
-	                } 
-	                else if (turn == 3) { // CPU 3
-	                	System.out.println("tie");
-	                    if (cpu3Hand.size() < 2) {
-	                        cpu3Hand.add(cards[cardIndex]);
-	                        cardIndex++;
-	                    }
-	                    if (cpu3Hand.size() == 2) turn++;
-	                } 
-	                else if (turn == 4) { // Dealer
-	                    if (DealerHand.size() < 2) {
-	                        DealerHand.add(cards[cardIndex]);
-	                        cardIndex++;
-	                    }
-	                    if (DealerHand.size() == 2) turn = 0; // Restart or stop
-	                }
-	            }
+	    	    while (cardIndex < 10) {
+	    	        if (turn == 0) {
+	    	            if (playerHand.size() < 2) {
+	    	                playerHand.add(cards[cardIndex]);
+	    	                cardIndex++;
+	    	            }
+	    	            if (playerHand.size() == 2) turn++;
+	    	        } 
+	    	        else if (turn == 1) {
+	    	            if (cpu1Hand.size() < 2) {
+	    	                cpu1Hand.add(cards[cardIndex]);
+	    	                cardIndex++;
+	    	            }
+	    	            if (cpu1Hand.size() == 2) turn++;
+	    	        } 
+	    	        else if (turn == 2) {
+	    	            if (cpu2Hand.size() < 2) {
+	    	                cpu2Hand.add(cards[cardIndex]);
+	    	                cardIndex++;
+	    	            }
+	    	            if (cpu2Hand.size() == 2) turn++;
+	    	        } 
+	    	        else if (turn == 3) {
+	    	            if (cpu3Hand.size() < 2) {
+	    	                cpu3Hand.add(cards[cardIndex]);
+	    	                cardIndex++;
+	    	            }
+	    	            if (cpu3Hand.size() == 2) turn++;
+	    	        } 
+	    	        else if (turn == 4) {
+	    	            if (DealerHand.size() < 2) {
+	    	                DealerHand.add(cards[cardIndex]);
+	    	                cardIndex++;
+	    	            }
+	    	            if (DealerHand.size() == 2) turn = 0; 
+	    	        }
+	    	    }
 
-	            // Print player's hand
-	            gui.write("Player has: " + playerHand.get(0) + " and " + playerHand.get(1));
-	            gui.write("cpu1 has : " + cpu1Hand.get(0) + " and: Hidden");
-	            gui.write("cpu2 has : " + cpu2Hand.get(0)+ " and: Hidden");
-	            gui.write("cpu3 has : " + cpu3Hand.get(0)+ " and: Hidden");
-	            gui.write("and the dealer has: " + DealerHand.get(0)+ " and: Hidden");
-	            Dealer(2);
-	        }
+	    	    gui.write("Player has: " + playerHand.get(0) + " and " + playerHand.get(1));
+	    	    gui.write("cpu1 has: " + cpu1Hand.get(0) + " and: Hidden");
+	    	    gui.write("cpu2 has: " + cpu2Hand.get(0)+ " and: Hidden");
+	    	    gui.write("cpu3 has: " + cpu3Hand.get(0)+ " and: Hidden");
+	    	    gui.write("Dealer has: " + DealerHand.get(0)+ " and: Hidden");
+	    	    
+	    	 
+
+	    	    return; 
+	    	}
+
 	        if(action == 2 && playerStood == false) {
 	        	if(turns == 0) {
 	        		//String card1 = playerHand.get(0);
@@ -233,6 +235,7 @@ public class blackJackie {
 	        	
 	        	playerHand.add(cards[currentCard]);
 	        	if(getHandValue(playerHand)>21) {
+	        		System.out.println("failure card: " + cards[currentCard]);
 	        		gui.write("you drew a " + cards[currentCard] );
 	        		gui.write("you bust!");
 	        		playerStood = true;
@@ -242,6 +245,7 @@ public class blackJackie {
 	        		gui.write("you drew a " + cards[currentCard] );
 	            	currentCard++;
 	            	turns++;
+	            	
 	            	Dealer(7);
 	        	}
 	        	
@@ -268,7 +272,7 @@ public class blackJackie {
 	        }
 	        if(action == 7) {
 	        	aiTurns();
-	        	Dealer(2);
+	        	//Dealer(2);
 	        }
 	        if(action == 8) {
 	        	System.out.print("player 1 has: ");
@@ -380,6 +384,8 @@ public class blackJackie {
 	                	gui.write(card + " ", true);
 	                }
 	                gui.write("");
+	                gui.write("starting new game...");
+	                gui.write("");
 	            }
 
 	            // Prompt to play another hand
@@ -389,6 +395,7 @@ public class blackJackie {
 	            
 	        }
 	        }
+	        
 
 
 	    
@@ -496,7 +503,7 @@ public class blackJackie {
 
 	            // If the player hasn't stood, only allow a single AI move before returning to them.
 	            if (singleTurn && actionTaken) {
-	                Dealer(2);
+	                //Dealer(2);
 	                return;
 	            }
 

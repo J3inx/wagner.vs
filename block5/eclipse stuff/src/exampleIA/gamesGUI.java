@@ -18,7 +18,6 @@ public class gamesGUI extends JFrame implements ActionListener{
 	public aHiLowGame hlGame = new aHiLowGame(this);
 	public blackJackie BJ;
 	public int card = -1;
-
 	public gamesGUI() {
 	    super("games with cards");
 	    setSize(800,600);
@@ -112,9 +111,7 @@ public class gamesGUI extends JFrame implements ActionListener{
 
 	public void actionPerformed(ActionEvent e) {
 		//clearing the board is bugged
-		if(gameBoard.getLineCount() >= 25) {
-			gameBoard.setText("");
-		}
+	
 		String rst = e.getActionCommand();
 		if(e.getActionCommand().equals("submit")) {
 			submitButton.setVisible(false);
@@ -129,11 +126,19 @@ public class gamesGUI extends JFrame implements ActionListener{
 			hlGame.handleHiLoChoice("l");
 		}
 		if(e.getActionCommand().equals("hit")) {
+			gameBoard.setText("");
 			System.out.println("Hit");
 			BJ.Dealer(3);
+			
 		}
 		if(e.getActionCommand().equals("stand")) {
+			gameBoard.setText("");
 			BJ.Dealer(4);
+	
+		
+				
+				
+			
 		}
 
 		if(rst.equals("start game")) {
