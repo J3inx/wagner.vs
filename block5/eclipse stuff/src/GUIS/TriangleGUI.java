@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 public class TriangleGUI extends JFrame implements ActionListener{
 	private JPanel box;
 	private JButton drawButton;
+	
 	public static void main(String [] args) {
 		TriangleGUI gui = new TriangleGUI();
 		gui.setVisible(true);
