@@ -15,6 +15,9 @@ public class Dino {
 	public double getLength() {
 		return length;
 	}
+	public int getAge() {
+		return age;
+	}
 	public String toString() {
 		return("species: " + species + " age: " + age + " is carnivore: " + isCarnivore + " length: " + length);
 	}
