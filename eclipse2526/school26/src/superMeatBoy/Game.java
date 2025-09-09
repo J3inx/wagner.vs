@@ -1,11 +1,12 @@
 package superMeatBoy;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
 public class Game extends JPanel{
-
+	MeatBoy mb = new MeatBoy();
 	public void gameLogic() {
 		
 		
@@ -13,8 +14,8 @@ public class Game extends JPanel{
 	}
 	public void paint(Graphics p) {
 		
-		System.out.println("Super Meat Boy Game");
-		
+		p.setColor(Color.red);
+		p.fillRect(mb.getxPos(),mb.getyPos(),mb.getWidth(),mb.getHeight());
 	}
 
 }
