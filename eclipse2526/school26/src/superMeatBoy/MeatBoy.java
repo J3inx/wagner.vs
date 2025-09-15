@@ -1,19 +1,37 @@
 package superMeatBoy;
 
 public class MeatBoy {
-	private int xPos = 50, yPos = 300, width = 75, height = 75;
 	
+	private int xPos = 50, yPos = 300, width = 30, height = 30;
+	public MeatBoy() {
+		xPos = 50;
+		yPos = 300;
+		width = 30;
+		height = 30;
+	}
+	public MeatBoy(int xPos, int yPos, int width, int height) {
+		this.xPos = xPos;
+		this.yPos = yPos;
+		this.width = width;
+		this.height = height;
+	}
 	
 	public int getxPos() {
 		return xPos;
 	}
-
-
 	
 
+	
+	public void setxPos(int x) {
+		xPos = x;
+	}
 
 	public int getyPos() {
 		return yPos;
+	}
+	
+	public void setyPos(int y) {
+		yPos = y;
 	}
 
 
@@ -35,11 +53,6 @@ public class MeatBoy {
 
 	
 
-	public MeatBoy() {
-		xPos = 50;
-		yPos = 300;
-		width = 75;
-		height = 75;
-	}
+	
 	
 }
