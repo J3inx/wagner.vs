@@ -15,7 +15,7 @@ public class GameDriver {
 
 		
 			f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			f.setTitle("Super Meat Boy");
+			f.setTitle("agario");
 			f.setSize(555,510);
 			Game g = new Game();
 			f.add(g);

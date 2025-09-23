@@ -5,12 +5,15 @@ import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 
 public class Game extends JPanel implements MouseMotionListener, MouseListener{
 	Player pl = new Player();
-	Food [] blob = new Food[5];
+	private ArrayList<Food> blob = new ArrayList<>();
+	
 	Enemy test = new Enemy();
 	int xMB;
 	int yMB;
@@ -33,13 +36,14 @@ public class Game extends JPanel implements MouseMotionListener, MouseListener{
 		double math;
 		pl.setxPos(xMB-offset);
 		pl.setyPos(yMB-offset);
-		for(int i = 0; i<5; i++) {
+		for(int i = 0; i<blob.size(); i++) {
 			
-			if(Math.sqrt(math = (((blob[i].getX()-pl.getxPos()-10)*(blob[i].getX()-pl.getxPos()-10)))+((blob[i].getY()-pl.getyPos()-10)*(blob[i].getY()-pl.getyPos()-10)))<offset+8){
-				blob[i].setX(900);
-				blob[i].setY(900);
-				pl.setWidth(pl.getWidth()+blob[i].getWidth());
-				pl.setHeight(pl.getHeight()+blob[i].getHeight());
+			if(Math.sqrt(math = (((blob.get(i).getX()-pl.getxPos()-10)*(blob.get(i).getX()-pl.getxPos()-10)))+((blob.get(i).getY()-pl.getyPos()-10)*(blob.get(i).getY()-pl.getyPos()-10)))<offset+8){
+				blob.get(i).setX(900);
+				blob.get(i).setY(900);
+				blob.add(new Food());
+				pl.setWidth(pl.getWidth()+blob.get(i).getWidth());
+				pl.setHeight(pl.getHeight()+blob.get(i).getHeight());
 				offset+=5;
 			}
 		}
@@ -69,9 +73,9 @@ public class Game extends JPanel implements MouseMotionListener, MouseListener{
 	public void paint(Graphics p) {
 		p.setColor(new Color(222,200,175));
 		p.fillRect(pl.getxPos(),pl.getyPos(),pl.getWidth(),pl.getHeight());
-		for(int i = 0; i<5; i++) {
-		p.setColor(new Color(blob[i].getR(),blob[i].getG(),blob[i].getB()));
-		p.fillOval(blob[i].getX(),blob[i].getY(),blob[i].getWidth(),blob[i].getHeight());
+		for(int i = 0; i<blob.size()-1; i++) {
+		p.setColor(new Color(blob.get(i).getR(),blob.get(i).getG(),blob.get(i).getB()));
+		p.fillOval(blob.get(i).getX(),blob.get(i).getY(),blob.get(i).getWidth(),blob.get(i).getHeight());
 		}
 		p.setColor(Color.red);
 		p.fillOval(test.getxPos(), test.getyPos(), test.getHeight(), test.getWidth());
@@ -82,11 +86,11 @@ public class Game extends JPanel implements MouseMotionListener, MouseListener{
 	public Game() {
 		addMouseMotionListener(this);
 		addMouseListener(this);
-		blob [0] = new Food();
-		blob [1] = new Food();
-		blob[2] = new Food();
-		blob[3] = new Food();
-		blob[4] = new Food();
+		blob.add(new Food());
+		blob.add(new Food());
+		blob.add(new Food());
+		blob.add(new Food());
+		blob.add(new Food());
 	}
 	@Override
 	public void mouseDragged(MouseEvent e) {
