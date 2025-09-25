@@ -1,10 +1,10 @@
 package agario;
 
 public class Player {
-	private int xPos = 50, yPos = 300, width = 30, height = 30, velY = 0;
+	private int xPos = 50, yPos = 300, width = 30, height = 30, velX = 0, velY = 0;
 	public Player() {
-		xPos = 50;
-		yPos = 300;
+		xPos = 222;
+		yPos = 222;
 		width = 30;
 		height = 30;
 	}
@@ -24,6 +24,16 @@ public class Player {
 	public void setxPos(int x) {
 		xPos = x;
 	}
+	
+	public int getxVel() {
+		return velX;
+	}
+	
+	public void setxVel(int x) {
+		velX = x;
+	}
+	
+	
 
 	public int getyPos() {
 		return yPos;
@@ -33,7 +43,13 @@ public class Player {
 		yPos = y;
 	}
 
-
+	public int getyVel() {
+		return velY;
+	}
+	
+	public void setyVel(int y) {
+		velY = y;
+	}
 	
 
 

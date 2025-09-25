@@ -19,6 +19,8 @@ public class Game extends JPanel implements MouseMotionListener, MouseListener{
 	int yMB;
 	int offset = 15;
 	int distance;
+	int lSpeedX = 1;
+	int lSpeedY = 1;
 	boolean jump = false;
 	public static void main(String [] args) {
 		
@@ -34,8 +36,15 @@ public class Game extends JPanel implements MouseMotionListener, MouseListener{
 	}
 	public void gameLogic() {
 		double math;
-		pl.setxPos(xMB-offset);
-		pl.setyPos(yMB-offset);
+		
+		//Set Player Velocity
+		pl.setxVel((xMB-250)/20);
+		pl.setyVel((yMB-250)/20);
+		
+		//Player Position Update
+		pl.setxPos(pl.getxPos()+pl.getxVel());
+		pl.setyPos(pl.getyPos()+pl.getyVel());
+		
 		for(int i = 0; i<blob.size(); i++) {
 			
 			if(Math.sqrt(math = (((blob.get(i).getX()-pl.getxPos()-10)*(blob.get(i).getX()-pl.getxPos()-10)))+((blob.get(i).getY()-pl.getyPos()-10)*(blob.get(i).getY()-pl.getyPos()-10)))<offset+8){
@@ -48,18 +57,18 @@ public class Game extends JPanel implements MouseMotionListener, MouseListener{
 			}
 		}
 		if(test.getxPos()-15 < pl.getxPos()+(offset)/2) {
-			test.setxPos(test.getxPos()+1);
+		//	test.setxPos(test.getxPos()+1);
 		}else if(test.getxPos()-15 == pl.getxPos()+(offset)/2){
 			
 		}else {
-			test.setxPos(test.getxPos()-1);
+		//	test.setxPos(test.getxPos()-1);
 		}
 		if(test.getyPos()-15 < pl.getyPos()+(offset)/2) {
-			test.setyPos(test.getyPos()+1);
+		//	test.setyPos(test.getyPos()+1);
 		}else if(test.getyPos()-15 == pl.getyPos()+(offset)/2){
 			
 		}else {
-			test.setyPos(test.getyPos()-1);
+		//	test.setyPos(test.getyPos()-1);
 		}
 		if(distance(pl.getxPos()+(offset/2), test.getxPos(), pl.getyPos()+(offset/2), test.getyPos()) < 40){
 			
@@ -71,12 +80,27 @@ public class Game extends JPanel implements MouseMotionListener, MouseListener{
 	}
 	
 	public void paint(Graphics p) {
+		p.setColor(Color.blue);
+		
+		//Horizontal
+		for(int i = -5000; i<= 5000; i+=40) 
+		{
+			p.drawLine(0, i-pl.getyPos(), 2000, i-pl.getyPos());	
+		}
+		
+		//Vertical
+		for(int i = -5000; i<= 5000; i+=40) 
+		{
+			p.drawLine(i-pl.getxPos(), 0, i-pl.getxPos(), 2000);		
+		}
+		
 		p.setColor(new Color(222,200,175));
-		p.fillRect(pl.getxPos(),pl.getyPos(),pl.getWidth(),pl.getHeight());
+		p.fillRect(250-15,250-15,pl.getWidth(),pl.getHeight());
 		for(int i = 0; i<blob.size()-1; i++) {
 		p.setColor(new Color(blob.get(i).getR(),blob.get(i).getG(),blob.get(i).getB()));
-		p.fillOval(blob.get(i).getX(),blob.get(i).getY(),blob.get(i).getWidth(),blob.get(i).getHeight());
+		p.fillOval(blob.get(i).getX()-pl.getxPos(),blob.get(i).getY()-pl.getyPos(),blob.get(i).getWidth(),blob.get(i).getHeight());
 		}
+		
 		p.setColor(Color.red);
 		p.fillOval(test.getxPos(), test.getyPos(), test.getHeight(), test.getWidth());
 		
