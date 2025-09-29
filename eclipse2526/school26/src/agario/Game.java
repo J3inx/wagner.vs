@@ -46,15 +46,15 @@ public class Game extends JPanel implements MouseMotionListener, MouseListener{
 		pl.setyPos(pl.getyPos()+pl.getyVel());
 		
 		for(int i = 0; i<blob.size(); i++) {
-			
-			if(Math.sqrt(math = (((blob.get(i).getX()-pl.getxPos()-10)*(blob.get(i).getX()-pl.getxPos()-10)))+((blob.get(i).getY()-pl.getyPos()-10)*(blob.get(i).getY()-pl.getyPos()-10)))<offset+8){
-				blob.get(i).setX(900);
-				blob.get(i).setY(900);
+			if(blob.get(i).getActive()) {
+				if(distance(blob.get(i).getX()+100, pl.getxPos(),blob.get(i).getY()+100, pl.getyPos()) <= pl.getWidth()/2) {
+				blob.get(i).setActive(false);
 				blob.add(new Food());
 				pl.setWidth(pl.getWidth()+blob.get(i).getWidth());
 				pl.setHeight(pl.getHeight()+blob.get(i).getHeight());
 				offset+=5;
 			}
+		}
 		}
 		if(test.getxPos()-15 < pl.getxPos()+(offset)/2) {
 		//	test.setxPos(test.getxPos()+1);
@@ -96,9 +96,12 @@ public class Game extends JPanel implements MouseMotionListener, MouseListener{
 		
 		p.setColor(new Color(222,200,175));
 		p.fillRect(250-15,250-15,pl.getWidth(),pl.getHeight());
-		for(int i = 0; i<blob.size()-1; i++) {
-		p.setColor(new Color(blob.get(i).getR(),blob.get(i).getG(),blob.get(i).getB()));
-		p.fillOval(blob.get(i).getX()-pl.getxPos(),blob.get(i).getY()-pl.getyPos(),blob.get(i).getWidth(),blob.get(i).getHeight());
+		for(int i = 0; i<blob.size(); i++) {
+			if (blob.get(i).getActive() == true){
+				p.setColor(new Color(blob.get(i).getR(),blob.get(i).getG(),blob.get(i).getB()));
+				p.fillOval(blob.get(i).getX()-pl.getxPos(),blob.get(i).getY()-pl.getyPos(),blob.get(i).getWidth(),blob.get(i).getHeight());
+			}
+		
 		}
 		
 		p.setColor(Color.red);
@@ -110,11 +113,11 @@ public class Game extends JPanel implements MouseMotionListener, MouseListener{
 	public Game() {
 		addMouseMotionListener(this);
 		addMouseListener(this);
-		blob.add(new Food());
-		blob.add(new Food());
-		blob.add(new Food());
-		blob.add(new Food());
-		blob.add(new Food());
+		for(int i = 0; i< 200; i++) {
+			blob.add(new Food());
+		}
+		
+		
 	}
 	@Override
 	public void mouseDragged(MouseEvent e) {

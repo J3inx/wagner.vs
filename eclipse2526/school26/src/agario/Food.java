@@ -8,9 +8,10 @@ public class Food {
 	int y;
 	int height;
 	int width;
+	boolean active = true;
 	public Food() {
-	x = (int)(Math.random()*500)+1;
-	y = (int)(Math.random()*500)+1;
+	x = (int)(Math.random()*1000)+1;
+	y = (int)(Math.random()*1000)+1;
 	r = (int)(Math.random()*254)+1;
 	g = (int)(Math.random()*254)+1;
 	b = (int)(Math.random()*254)+1;
@@ -54,6 +55,12 @@ public class Food {
 	}
 	public void setY(int y) {
 		this.y = y;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	public boolean getActive() {
+		return active;
 	}
 	public void setHeight(int height) {
 		this.height = height;
