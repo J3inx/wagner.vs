@@ -2,32 +2,33 @@ package agario;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class Game extends JPanel implements MouseMotionListener, MouseListener{
 	Player pl = new Player();
 	private ArrayList<Food> blob = new ArrayList<>();
-	
+	TurtleBullet bull = new TurtleBullet(230,230);
 	Enemy test = new Enemy();
-	int xMB;
-	int yMB;
+	int xMB, xCLICK;
+	int yMB, yCLICK;
 	int offset = 15;
 	int distance;
 	int lSpeedX = 1;
 	int lSpeedY = 1;
 	boolean jump = false;
-	public static void main(String [] args) {
-		
-		
-		
-		
-	}
+	static Image turtle;
+	
+	
 	public int distance(int x1, int x2, int y1, int y2) {
 		int exes = (x1-x2)*(x1-x2);
 		int whys = (y1-y2)*(y1-y2);
@@ -105,8 +106,9 @@ public class Game extends JPanel implements MouseMotionListener, MouseListener{
 		}
 		
 		p.setColor(Color.red);
-		p.fillOval(test.getxPos(), test.getyPos(), test.getHeight(), test.getWidth());
-		
+		//p.fillOval(test.getxPos(), test.getyPos(), test.getHeight(), test.getWidth());
+		p.drawImage(bull.getTurtle(), bull.getxPos(),bull.getyPos(), 40, 40, this);
+		System.out.println(pl.getxPos() + " " + pl.getyPos());
 		
 	}
 	
@@ -116,6 +118,7 @@ public class Game extends JPanel implements MouseMotionListener, MouseListener{
 		for(int i = 0; i< 200; i++) {
 			blob.add(new Food());
 		}
+		
 		
 		
 	}
@@ -133,7 +136,8 @@ public class Game extends JPanel implements MouseMotionListener, MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		
+		xCLICK = e.getX();
+		yCLICK = e.getY();
 		
 	}
 	@Override
