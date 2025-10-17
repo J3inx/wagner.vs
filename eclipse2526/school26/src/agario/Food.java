@@ -10,8 +10,8 @@ public class Food {
 	int width;
 	boolean active = true;
 	public Food() {
-	x = (int)(Math.random()*1000)+1;
-	y = (int)(Math.random()*1000)+1;
+	x = (int)(Math.random()*10000)+1;
+	y = (int)(Math.random()*10000)+1;
 	r = (int)(Math.random()*254)+1;
 	g = (int)(Math.random()*254)+1;
 	b = (int)(Math.random()*254)+1;

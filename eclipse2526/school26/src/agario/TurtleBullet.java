@@ -8,8 +8,8 @@ import javax.imageio.ImageIO;
 
 public class TurtleBullet {
 	public Image turtle;
-	int xPos = 230;
-	int yPos = 230;
+	int xPos;
+	int yPos;
 	int ySpeed;
 	int xSpeed;
 	
@@ -23,6 +23,20 @@ public class TurtleBullet {
 				}
 			this.xPos = xPos;
 			this.yPos = yPos;
+			
+	}
+		public  TurtleBullet(int xPos, int yPos, int xSpeed, int ySpeed) {
+			try {
+		 turtle = ImageIO.read(new File("box.png"));
+				}catch (IOException e){
+					e.printStackTrace();
+					System.out.println("image not found");
+					System.exit(404);
+				}
+			this.xPos = xPos;
+			this.yPos = yPos;
+			this.xSpeed = xSpeed;
+			this.ySpeed = ySpeed;
 			
 	}
 
@@ -64,5 +78,27 @@ public class TurtleBullet {
 
 		public void setxSpeed(int xSpeed) {
 			this.xSpeed = xSpeed;
+		}
+		public void update() {
+			 xPos += xSpeed;
+			    yPos += ySpeed;
+
+			    // Apply integer "friction"
+			    if (xSpeed > 0) {
+			        xSpeed -= 5;
+			        if (xSpeed < 0) xSpeed = 0;
+			    } else if (xSpeed < 0) {
+			        xSpeed += 5;
+			        if (xSpeed > 0) xSpeed = 0;
+			    }
+
+			    if (ySpeed > 0) {
+			        ySpeed -= 5;
+			        if (ySpeed < 0) ySpeed = 0;
+			    } else if (ySpeed < 0) {
+			        ySpeed += 5;
+			        if (ySpeed > 0) ySpeed = 0;
+			    }
+			//this.ySpeed -= 1;
 		}
 }
