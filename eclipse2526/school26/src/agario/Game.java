@@ -72,6 +72,7 @@ public class Game extends JPanel implements MouseMotionListener, MouseListener{
 			}
 		}
 		}
+		
 		if(test.getxPos()-15 < pl.getxPos()+(offset)/2) {
 			test.setxPos(test.getxPos()+1);
 		}else if(test.getxPos()-15 == pl.getxPos()+(offset)/2){
