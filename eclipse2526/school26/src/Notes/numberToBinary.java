@@ -36,6 +36,21 @@ public class numberToBinary {
 			}
 		}
 		System.out.println("debinarified double is: " + accumulatoro);
+		
+		System.out.println("please enter number to hexify");
+		int num = kb.nextInt();
+
+		String hexDigits = "0123456789ABCDEF";
+		String hex = "";
+		if (num == 0) {
+		    hex = "0";
+		}
+		while (num > 0) {
+		    int remainder = num % 16;         
+		    hex = hexDigits.charAt(remainder) + hex;  
+		    num = num / 16;
+		}
+		System.out.println("Hex value: " + hex);
 		System.exit(0);
 	}
 
