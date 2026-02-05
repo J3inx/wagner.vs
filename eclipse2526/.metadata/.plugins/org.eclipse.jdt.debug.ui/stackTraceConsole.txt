@@ -1,0 +1,18 @@
+System.out.println("please enter number to hexify");
+int num = kb.nextInt();
+
+String hexDigits = "0123456789ABCDEF";
+String hex = "";
+
+// Special case
+if (num == 0) {
+    hex = "0";
+}
+
+while (num > 0) {
+    int remainder = num % 16;          // last hex digit
+    hex = hexDigits.charAt(remainder) + hex;  // prepend
+    num = num / 16;
+}
+
+System.out.println("Hex value: " + hex);

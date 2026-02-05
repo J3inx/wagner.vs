@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+/Users/bw26168/Desktop/wagner.vs/eclipse2526/.metadata/.plugins/org.eclipse.jdt.core
+34498441.index
+3695698053.index
+1865797976.index
