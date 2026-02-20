@@ -5,7 +5,11 @@ const height = canvas.height;
 const centerX = width / 2;
 const centerY = height / 2;
 let rotationOffset = 0;
-
+let circleY = 300;
+let circleX = 600;
+let accelX = 0.09;
+let xSpeed = 10;
+let ySpeed = 0;
 function drawRotatingCircles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
@@ -25,5 +29,40 @@ function drawRotatingCircles() {
     ctx.closePath();
     requestAnimationFrame(drawRotatingCircles);
 }
+function drawBouncingCircles() {
+    //console.log("test");
+    
+    const gravity = 0;
+    circleX += xSpeed;
+    circleY += ySpeed;
+    ySpeed += accelX;
+   ctx.beginPath();
+   ctx.arc(circleX, circleY, 10, 0, Math.PI * 2);
+   let ballRadius = 10;
+   ctx.fillStyle = '#ff0000';
+   ctx.fill();
+   ctx.closePath();
+    // Collision detection for left/right walls
+    if (Math.sqrt(Math.pow(circleX - centerX, 2) + Math.pow(circleY - centerY, 2)) > 200) {
+ 
+    let nx = centerX - circleX;
+    let ny = centerY - circleY;
+    let dist = Math.sqrt(nx * nx + ny * ny);
+    nx /= dist;
+    ny /= dist; 
 
+    let dotProduct = (xSpeed * nx) + (ySpeed * ny);
+
+
+    xSpeed = xSpeed - 2 * dotProduct * nx;
+    ySpeed = ySpeed - 2 * dotProduct * ny;
+    
+
+    circleX = centerX - nx * 199;
+    circleY = centerY - ny * 199;
+}
+    requestAnimationFrame(drawBouncingCircles);
+    
+}
 drawRotatingCircles();
+drawBouncingCircles();
