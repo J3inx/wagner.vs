@@ -1,0 +1,21 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    height: 100vh;
+    margin: 0;
+    background-color: #7693b8;
+    color: rgb(103, 64, 64);
+    font-family: sans-serif;
+}
+canvas{
+    border: 4px solid #290bad;
+    background-color: #08294b;
+    box-shadow: 0 0 20px rgba(0,0,0,0,5);
+}
+p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1,2rem;
+    margin-top: 15px;
+    letter-spacing: 1px;
+}

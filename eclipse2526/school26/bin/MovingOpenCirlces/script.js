@@ -10,6 +10,7 @@ let circleX = 600;
 let accelX = 0.09;
 let xSpeed = 10;
 let ySpeed = 0;
+let bounceCount = 0;
 function drawRotatingCircles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
@@ -31,7 +32,10 @@ function drawRotatingCircles() {
 }
 function drawBouncingCircles() {
     //console.log("test");
-    
+     ctx.fillStyle = 'white';
+       ctx.font = '20px Arial';
+       ctx.fillText(`Bounces: ${bounceCount} / 5`, 20, 30);
+   if (bounceCount < 5) {
     const gravity = 0;
     circleX += xSpeed;
     circleY += ySpeed;
@@ -60,9 +64,13 @@ function drawBouncingCircles() {
 
     circleX = centerX - nx * 199;
     circleY = centerY - ny * 199;
+    bounceCount++;
+    }
+}else{
+    ctx.fillText("Ball Disappeared!", centerX, centerY);
 }
     requestAnimationFrame(drawBouncingCircles);
-    
 }
+
 drawRotatingCircles();
 drawBouncingCircles();
