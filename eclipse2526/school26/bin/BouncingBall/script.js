@@ -24,7 +24,18 @@ function update(){
         b.vy+=0.2;
         b.x += b.vx;
         b.y += b.vy;
-
+        if(b.y+b.radius > canvas.height){
+            b.y = canvas.height - b.radius;
+            b.vy *= -0.9;
+        }
+        if(b.x+b.radius > canvas.width){
+            b.x = canvas.width - b.radius;
+            b.vx *= -0.9;
+        }
+        if(b.x-b.radius < 0){
+            b.x = b.radius;
+            b.vx *= -0.9;
+        }
         ctx.beginPath();
         ctx.arc(b.x, b.y, b.radius, 0, Math.PI * 2);
         ctx.fillStyle = b.color;
